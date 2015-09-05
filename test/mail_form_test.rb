@@ -49,7 +49,7 @@ class MailFormTest < ActiveSupport::TestCase
     sample.email = "user@example.com"
     sample.deliver
 
-    assert_equal ActionMailer::Base.deliveries.size
+    assert_equal ActionMailer::Base.deliveries.size, 1
     mail = ActionMailer::Base.deliveries.last
 
     assert_equal ["user@example.com"], mail.from

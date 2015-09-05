@@ -11,6 +11,12 @@ class SampleMail < MailForm::Base
     evaluated_callbacks << :after
   end
 
+  def initialize(attributes={})
+    attributes.each do |attr, value|
+      self.public_send("#{attr}=", value)
+    end if attributes
+  end
+
   def evaluated_callbacks
     @evaluated_callbacks ||= []
   end

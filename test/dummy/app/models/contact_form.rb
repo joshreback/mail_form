@@ -3,7 +3,7 @@ class ContactForm < MailForm::Base
 
   def initialize(attributes={})
     attributes.each do |attr, value|
-      self.public_send("#{attr=}", value)
+      self.public_send("#{attr}=", value)
     end if attributes
   end
 
